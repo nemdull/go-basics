@@ -2,16 +2,22 @@ package main
 
 import (
 	"fmt"
-	"go-basics/calculator"
-	"os"
-
-	"github.com/joho/godotenv"
 )
 
 func main() {
-	godotenv.Load()
-	fmt.Println(os.Getenv("GO_ENV"))
-	fmt.Println(calculator.Offset)
-	fmt.Println(calculator.Sum(1, 2))
-	fmt.Println(calculator.Multiply(1, 2))
+	var i int = 2
+	fmt.Println(i)
+
+	s := "hello"
+	b := true
+	fmt.Printf("f: %[1]v %[1]T\n", s)
+	fmt.Printf("f: %[1]v %[1]T\n", b)
+
+	pi, title := 3.14, "Go"
+	fmt.Printf("pi: %v title: %v\n", pi, title)
+
+	x := 10
+	y := 1.23
+	z := float64(x) + y
+	fmt.Println(z)
 }
