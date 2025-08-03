@@ -4,6 +4,16 @@ import (
 	"fmt"
 )
 
+const secret = "abc"
+
+type Os int
+
+const (
+	Mac Os = iota + 1
+	windows
+	Linux
+)
+
 func main() {
 	var i int = 2
 	fmt.Println(i)
@@ -20,4 +30,8 @@ func main() {
 	y := 1.23
 	z := float64(x) + y
 	fmt.Println(z)
+
+	fmt.Println(Mac)
+	fmt.Println(windows)
+	fmt.Println(Linux)
 }
