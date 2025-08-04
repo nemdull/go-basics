@@ -2,36 +2,24 @@ package main
 
 import (
 	"fmt"
-)
-
-const secret = "abc"
-
-type Os int
-
-const (
-	Mac Os = iota + 1
-	windows
-	Linux
+	"unsafe"
 )
 
 func main() {
-	var i int = 2
-	fmt.Println(i)
+	var ui1 uint16
+	fmt.Printf("memory address of ui1: %p\n", &ui1)
+	var ui2 uint16
+	fmt.Printf("memory address of ui2: %p\n", &ui2)
+	var p1 *uint16
+	fmt.Printf("value of p1: %v\n", p1)
+	p1 = &ui1
+	fmt.Printf("value of p1: %v\n", p1)
+	fmt.Printf("size of p1: %d[bytes]\n", unsafe.Sizeof(p1))
+	fmt.Printf("memory address of p1: %p\n", &p1)
+	fmt.Printf("value of ui1(dereference): %v\n", *p1)
+	*p1 = 1
+	fmt.Printf("value of ui1(dereference): %v\n", *p1)
 
-	s := "hello"
-	b := true
-	fmt.Printf("f: %[1]v %[1]T\n", s)
-	fmt.Printf("f: %[1]v %[1]T\n", b)
-
-	pi, title := 3.14, "Go"
-	fmt.Printf("pi: %v title: %v\n", pi, title)
-
-	x := 10
-	y := 1.23
-	z := float64(x) + y
-	fmt.Println(z)
-
-	fmt.Println(Mac)
-	fmt.Println(windows)
-	fmt.Println(Linux)
+	var pp1 **uint16 = &p1
+	fmt.Printf("value of pp1: %v\n", pp1)
 }
