@@ -22,4 +22,17 @@ func main() {
 
 	var pp1 **uint16 = &p1
 	fmt.Printf("value of pp1: %v\n", pp1)
+
+	ok, result := true, "A"
+	fmt.Printf("memory address of p1: %p\n", &result)
+	if ok {
+		result = "B"
+		fmt.Printf("memory address of p1: %p\n", &result)
+		println(result)
+
+	} else {
+		result = "C"
+		println(result)
+	}
+	println(result)
 }
