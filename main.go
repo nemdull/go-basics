@@ -1,37 +1,19 @@
 package main
 
-import (
-	"fmt"
-)
-
-const secret = "abc"
-
-type Os int
-
-const (
-	Mac Os = iota + 1
-	windows
-	Linux
-)
+import "fmt"
 
 func main() {
-	var i int = 2
-	fmt.Println(i)
+	var a1 [3]int
+	var a2 = [3]int{10, 20, 30}
+	a3 := [...]int{10, 20}
+	fmt.Printf("%v %v %v\n", a1, a2, a3)
+	fmt.Printf("%v %v\n", len(a3), cap(a3))
+	fmt.Printf("%T %T\n", a2, a3)
 
-	s := "hello"
-	b := true
-	fmt.Printf("f: %[1]v %[1]T\n", s)
-	fmt.Printf("f: %[1]v %[1]T\n", b)
-
-	pi, title := 3.14, "Go"
-	fmt.Printf("pi: %v title: %v\n", pi, title)
-
-	x := 10
-	y := 1.23
-	z := float64(x) + y
-	fmt.Println(z)
-
-	fmt.Println(Mac)
-	fmt.Println(windows)
-	fmt.Println(Linux)
+	var s1 []int
+	s2 := []int{}
+	fmt.Printf("s1: %[1]T %[1]v %v %v\n", s1, len(s1), cap(s1))
+	fmt.Printf("s2: %[1]T %[1]v %v %v\n", s2, len(s2), cap(s2))
+	fmt.Println(s1 == nil)
+	fmt.Println(s2 == nil)
 }
