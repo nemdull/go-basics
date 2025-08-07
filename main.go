@@ -16,4 +16,5 @@ func main() {
 	fmt.Printf("s2: %[1]T %[1]v %v %v\n", s2, len(s2), cap(s2))
 	fmt.Println(s1 == nil)
 	fmt.Println(s2 == nil)
+	//
 }
