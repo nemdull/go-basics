@@ -2,13 +2,12 @@ package main
 
 import (
 	"fmt"
-	"go-basics/calculator"
 )
 
 func main() {
-	sumResult := calculator.Sum(5, 3)
-	fmt.Printf("Sum(5, 3) = %f\n", sumResult)
+	var ui1 uint16
+	fmt.Printf("memory address of ui1: %p\n", &ui1)
+	var ui2 uint16
+	fmt.Printf("memory address of ui1: %p\n", &ui2)
 
-	multiplyResult := calculator.Multiply(5, 3)
-	fmt.Printf("Multiply(5, 3) = %f\n", multiplyResult)
 }
