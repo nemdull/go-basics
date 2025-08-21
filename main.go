@@ -141,4 +141,8 @@ func main() {
 	for k, v := range m2 {
 		fmt.Printf("%v %v\n", k, v)
 	}
+
+	m3 := map[string]string{}
+	m3["cookie"] = "good"
+	fmt.Printf("%v \n", m3)
 }
