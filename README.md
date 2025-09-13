@@ -1,34 +1,65 @@
-# Go Basic Project
+# Go Basics — 配列・スライス・マップの基本操作サンプル
 
-This is a simple Go project that demonstrates basic Go concepts and a simple calculator package.
+Go言語の配列、スライス、マップの基本的な使い方を学ぶためのサンプルコードを集約したリポジトリです。主に main.go にコメント付きの実例が含まれており、実行と出力を通じて動作の理解を深められます。
 
-## Features
+## 技術スタック
 
-- A `main.go` file that demonstrates the usage of basic data structures in Go:
-  - **Arrays**: Fixed-size collections of items of the same type.
-  - **Slices**: Flexible, dynamically-sized views into the elements of an array.
-  - **Maps**: Collections of key-value pairs.
-- A `calculator` package that provides `Sum` and `Multiply` functions.
-- Unit tests for the calculator package.
+- 言語: Go
+- バージョン: Go 1.24.5
+- 標準ライブラリ
+- 外部依存: github.com/joho/godotenv v1.5.1
+- テスト: Go の testing パッケージ (calculator 配下にテストあり)
 
-## How to Run
+補足: CI/CD の設定ファイル (.github/workflows など) はリポジトリ内で現時点では確認できません。今後の拡張として CI の導入を検討してください。
 
-### Run the main application
+## 主な機能一覧
 
-The `main.go` file contains examples of how to declare, initialize, and manipulate arrays, slices, and maps. To see the output, run the following command:
+- 配列の初期化と基本操作
+  - 要素数・型・長さの表示
+  - 配列のサイズ推論と初期化
+- スライスの作成・拡張・コピー・サブスライス
+  - nil と空のスライスの差異
+  - make を用いた容量設定
+  - サブスライスの参照と影響範囲
+  - copy の動作と新しい基底配列の生成
+  - capacity の挙動と append の影響
+- マップの基本操作
+  - nil マップと空マップの差異
+  - 要素の追加・削除
+  - ループによるキー/値の処理
+- テストコードの存在
+  - calculator 配下にテストが存在
 
-```bash
-go run main.go
-```
+## 設計・実装の工夫
 
-### Run the tests
+- コメント主体の教育用途コード設計: main.go 内に配列・スライス・マップの挙動を詳しく解説するコメントを多数配置
+- 実演的なデモ: 代表的な操作（append、コピー、サブスライス、キャパシティ、和配列と参照の関係）を連続して実演
+- 型推論と動的変化の可視化: len/cap の表示や型表示で挙動を直感的に把握できるよう配慮
 
-To run the unit tests for the `calculator` package, use the following command:
+## セットアップ & 動作確認
 
-```bash
-go test ./...
-```
+- 依存関係の取得
+  - go mod download
+  - あるいは go mod tidy
+- ローカル実行
+  - go run main.go
+- テスト実行
+  - go test ./...
+  - calculator パッケージのテストも含む場合は go test ./...
 
-## Technologies
+## 使い方のヒント
 
-- Go
+- main.go のコードは、Go の配列とスライス、マップの基礎操作を手を動かして理解できるように設計されています。各セクションごとに print 文が挿入されており、実行時の出力を追えば挙動を把握しやすいです。
+- godotenv は go.mod に含まれていますが、現状 main.go 内で直接使用されていません。環境変数の取り扱いを追加する際の導入候補として挙げられます。
+
+## 改善ポイント / TODO
+
+- テスト: 配列・スライス・マップ周りのユニットテストを追加して、挙動の回帰テストを充実させる
+- エラーハンドリング: 現状のサンプルはエラーハンドリングを伴わない実演。実用性を高めるため適切なエラーハンドリングを追加
+- ドキュメント強化: 各コードブロックの出力例と、それに対応する解説を README に追記
+- CI/CD: GitHub Actions 等のワークフローを追加して自動ビルド・テストを回す
+
+## 備考
+
+- このリポジトリには calculator 配下のテストが含まれており、Go の標準テスト機能の理解にも役立ちます。
+- すでに存在する README.md がある場合は、上書きして新しい構成を適用します。必要に応じてセクションの順序を調整してください。
